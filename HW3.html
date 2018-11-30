@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-us" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Investigating if student-teacher</title>
+<style type="text/css">
+.style1 {
+	text-align: center;
+	font-size: larger;
+}
+.style2 {
+	text-align: left;
+	font-size: larger;
+}
+</style>
+</head>
+
+<body>
+
+<p class="style1"><strong>Investigating if student-teacher ratio influences SAT 
+scores</strong></p>
+<p class="style2">This assignment required us to develop a Tableau dashboard to 
+visualize student-teacher ratios of various US states and corresponding SAT 
+scores in order to investigate if SAT scores are influenced by smaller ratios.</p>
+<p class="style2">I designed the following dashboard.</p>
+<script type="text/javascript" src="http://public.tableausoftware.com/javascripts/api/viz_v1.js"></script><div class="tableauPlaceholder" style="width:1283px; height:901px;"><noscript><a href="#"><img alt="Investigating if student-teacher ratio influences SAT scores? " src="http:&#47;&#47;public.tableausoftware.com&#47;static&#47;images&#47;Sa&#47;Sat_and_student_teacher_ratio_year_animation4_2&#47;Dashboard1&#47;1_rss.png" style="height: 100%; width: 100%; border: none" /></a></noscript><object class="tableauViz" width="1283" height="901" style="display:none;"><param name="host_url" value="http%3A%2F%2Fpublic.tableausoftware.com%2F" /><param name="name" value="Sat_and_student_teacher_ratio_year_animation4_2&#47;Dashboard1" /><param name="tabs" value="no" /><param name="toolbar" value="yes" /><param name="static_image" value="http:&#47;&#47;public.tableausoftware.com&#47;static&#47;images&#47;Sa&#47;Sat_and_student_teacher_ratio_year_animation4_2&#47;Dashboard1&#47;1.png" /><param name="animate_transition" value="yes" /><param name="display_static_image" value="yes" /><param name="display_spinner" value="yes" /><param name="display_overlay" value="yes" /></object></div><div style="width:1283px;height:22px;padding:0px 10px 0px 0px;color:black;font:normal 8pt verdana,helvetica,arial,sans-serif;"><div style="float:right; padding-right:8px;"><a href="http://www.tableausoftware.com/public?ref=http://public.tableausoftware.com/views/Sat_and_student_teacher_ratio_year_animation4_2/Dashboard1" target="_blank">Powered by Tableau</a></div></div>
+<p class="style2"><strong>Insights</strong></p>
+<p class="style2">Each animated representation above visualizes the effect of 
+student-teacher ratio on SAT scores. While the first visualization represents 
+SAT score as a bubble, the second visualization plots the ratio against SAT 
+score for each state, with the states sorted in ascending order of mean SAT 
+score. The second visualization also plots the mean SAT score for United States.</p>
+<p class="style2">We observe large number of green bubbles in the first 
+visualization representing multiple states have low student-teacher ratio. We 
+are interested in looking at larger bubbles as these represent high SAT scores. 
+It is interesting that for all three years (2000, 2005 and 2006) the number of 
+large green bubbles is almost twice that of red green bubbles, suggesting that a 
+low student to teacher ratio may result in higher SAT scores. Also noticable is 
+the drop in SAT scores from 2000 to 2005 in the states of Utah, Nevada and 
+Oregon as the ratio increases while an increase in SAT scores in the states of 
+North Dakota, South Dakota, Missouri and Alabama as the ratio decreases.</p>
+<p class="style2">An even more interesting observation is made for data 
+available from 2006 for which the percentage of SAT takers is also available. 
+This information is visible on the map as a gray gradient with dark regions 
+indicating higher percentage of SAT takers. We observe that while the state of 
+Maine has 100% representation and lower ratio, the average SAT scores are less. 
+On the other hand, states of North Dakota have poorer represenataion and 
+consequently higher scores for ratios in the same range. Again however, looking 
+at the western states, we notice a fairly moderate percent of test takers and 
+moderate values of mean SAT scores as well as ratios. Thus, it feels that 
+percent of SAT takers is also a factor affecting the mean SAT scores. </p>
+<p class="style2">In the second visualization, we are interested in looking at 
+number of greener points towards the right of United States mean score. We 
+indeed see that for all years, this number is sufficiently large. We also see 
+interesting cases like Ohio state where small percent of SAT takers in 2006 
+(27%) with increased student-teacher ratio results in drop in mean scores. 
+Similar observation is made for Utah, Idaho and Arizona. </p>
+<p class="style2">Looking at above patterns, we can say that lower ratios 
+contribute towards better SAT scores in general, though percentage of students 
+taking SAT also effects mean SAT score (a higher percentage of test takers 
+lowers the mean). </p>
+<p class="style2">&nbsp;</p>
+<p class="style2"><strong>Method</strong></p>
+<p class="style2">Since the data was available only for select years in each 
+data set, rather than taking a mean of all years, I decided to take only those 
+years for which both data was available to visualize the relation. This also 
+enabled me to compare the growth over time. (Though I understand that inferring 
+such a growth from just 3 data points - years 2000, 2005 and 2006 - is not 
+completely flawless, nevertheless it allows us to predict a trend - whether data 
+points are moving up or down).</p>
+<p class="style2">Also, since for the year 2000 SAT had only two sections, while 
+for the other years there were three sections, I decided to take a mean of 
+combined score by adding score in all sections for that year and dividing by 
+number of sections. This normalized all scores to the range of [0-800] and 
+allowed for easier comparison.</p>
+<p class="style2">For the year 2006 I also wanted to plot the percent of SAT 
+takers as a dimension on the map. Since Tableau by default doesn&#39;t allow 
+creating custom map layers, I had to either design my own and serve from a WMS 
+server or somehow embed the information in graph itself.</p>
+<p class="style2">I decided to go with the first approach initially but after 
+spending few hours in setting up a WMS server and writing my own data layers, I 
+quit. Actually, this option would have worked wonderful if I had to embed 
+generic geographical information, but since I wanted to encode only specific 
+data for a specific year, this approach was too taxing.</p>
+<p class="style2">I then decided to embed the data regarding percentage of SAT 
+takers in my initial data set and decided to render it as a data point. This 
+method required me to do two things. Firstly, I had to obtain geographical 
+boundry information for states of the USA, something I found on the US census 
+bureau site <a href="http://www.census.gov/geo/www/cob/">here</a>. (I was unable 
+to obtain/parse data for Alaska and Hawaii successfully). </p>
+<p class="style2">Next, I had to use this information to create records in my 
+dataset each represnting a line on the map to create a filled polygon. I also 
+had to manually perform an outer join of my data and this polygonal information 
+as using Tableau to join the two data resulted in lot of null values - there is 
+only inner, left and right join in Tableau.</p>
+<p class="style2">I had to do this for each year I had to chart as I wanted to 
+display the polygons only for year 2006 when the percentage of SAT takers is 
+available. The resultant record set exceeded 65535 rows, forcing me to dump all 
+data into CSV files. These files can be downloaded here: 
+<a href="sat_ratio_combined4_sheet1.csv">
+sat_ratio_combined4_sheet1.csv</a> and
+<a href="sat_ratio_combined4_sheet3_1.csv">
+sat_ratio_combined4_sheet3_1.csv</a>  .</p>
+<p class="style2">After loading these files into Tableau, I created a Double 
+Dual Axis graph to view latitude and longitudes in the shape of USA&#39;s boundary, 
+synchronized the two axes and removed headers. I also enabled multiple markers 
+and created polygonal layers for one set of lat/long and bubbles for another. 
+This gave me the representation that is visible now minus the background map. 
+So, I took a screenshot of the map with no data points (only lat/long), and used 
+that as a background image for my DDA graph. This resulted in the final world 
+map with polygonal layers for 2006.</p>
+<p class="style2">To create the second visualization, states representing X-axis 
+were sorted in ascending order of their mean SAT scores. This allowed me to 
+compare the performance against national mean (represented as United States). A 
+normal X-Y graph was used to represnt this information with additional 
+dimensions used to create marks.</p>
+<p class="style2">&nbsp;</p>
+</body>
+
+</html>
